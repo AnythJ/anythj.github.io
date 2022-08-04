@@ -1,0 +1,552 @@
+:root {
+    font-size: 16px;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    --bg-primary: #0a0908;
+    --bg-secondary: #1c1a17;
+    --text-primary: white;
+    --text-secondary: #4587ba;
+    --firstProject-primary: #212529;
+    --firstProject-secondary: #0DCAF0;
+    --firstProject-text: white;
+    --secondProject-primary: #1A1A1D;
+    --secondProject-secondary: #F72C25;
+    --secondProject-text: #F4ECD6;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+body {
+    background-color: #0a0908;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.projectsContainer::-webkit-scrollbar,
+.frontContainer::-webkit-scrollbar {
+    display: block;
+    width: 8px;
+}
+
+.projectsContainer::-webkit-scrollbar-track-piece,
+.frontContainer::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+}
+
+.projectsContainer::-webkit-scrollbar-thumb,
+.frontContainer::-webkit-scrollbar-thumb {
+    background-color: var(--text-secondary);
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+@media only screen and (min-height: 361px) {
+    .frontContainer {
+        justify-content: center;
+    }
+}
+
+.frontContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    gap: 2rem;
+    transition: all 0.8s;
+    overflow-y: auto;
+}
+
+.buttonRow {
+    display: flex;
+    gap: 3rem;
+    justify-content: space-evenly;
+    opacity: 0;
+    animation: show 1s forwards;
+    animation-delay: 0.30s;
+}
+
+@keyframes show {
+    to {
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    .firstText {
+        font-size: 6vw;
+    }
+
+    .descriptionText {
+        font-size: 4vw;
+    }
+
+    .letter {
+        font-size: 6vw;
+    }
+}
+
+@media only screen and (min-width: 771px) {
+    .firstText {
+        font-size: 3rem;
+    }
+
+    .descriptionText {
+        font-size: 2rem;
+    }
+
+    .letter {
+        font-size: 3rem;
+    }
+}
+
+.mainTextContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.firstText {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    animation: show 1s forwards;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.descriptionText {
+    margin: 1rem 0;
+    opacity: 0;
+    animation: show 1s forwards;
+    animation-delay: 0.15s;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+span.name {
+    display: flex;
+    margin: 0 1.2rem;
+}
+
+@keyframes nameAnimation {
+    to {
+        color: var(--text-secondary);
+    }
+}
+
+.letter {
+    animation: nameAnimation 0.4s forwards;
+}
+
+    .letter:hover {
+        animation: nameAnimation 0.4s backwards;
+    }
+
+.jLet {
+    animation-delay: 0.2s;
+}
+
+.aLet {
+    animation-delay: 0.3s;
+}
+
+.kLet {
+    animation-delay: 0.4s;
+}
+
+.uLet {
+    animation-delay: 0.5s;
+}
+
+.bLet {
+    animation-delay: 0.6s;
+}
+
+
+.btn {
+    width: 100%;
+    height: 100%;
+    border: 0.1rem solid var(--text-secondary);
+    background-color: var(--bg-primary);
+    color: white;
+    transition: all 0.2s;
+    font-weight: 500;
+    margin: 0;
+}
+
+.firstProject .btn {
+    border: 0.1rem solid var(--text-secondary);
+    background-color: var(--bg-primary);
+    color: white;
+}
+
+.btn-span:hover .btn {
+    background-color: var(--text-secondary);
+    cursor: pointer;
+    transform: translate(0px, 5px);
+    border-width: 1em;
+}
+
+.btn-span {
+    width: 7rem;
+    height: 2.5rem;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.links {
+    display: flex;
+    gap: 3rem;
+    justify-content: space-evenly;
+    opacity: 0;
+    animation: show 1s forwards;
+    animation-delay: 0.45s;
+}
+
+    .links a {
+        color: var(--text-primary);
+    }
+
+        .links a:visited {
+            color: var(--text-primary);
+        }
+
+.fab {
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    transition: all 0.2s;
+}
+
+    .fab:hover {
+        cursor: pointer;
+        color: var(--text-secondary);
+    }
+
+
+/*Contact Me*/
+@media only screen and (min-height: 392px) {
+    .contactContainer {
+        justify-content: center;
+    }
+}
+
+.contactContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    transform: translateX(-100vw);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    gap: 2rem;
+    overflow-y: auto;
+}
+
+.contactFormContainer {
+    width: 60%;
+    height: 65%;
+    min-height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (min-width: 1121px) {
+    .contactFormContainer {
+        min-width: 70rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .contactFormContainer {
+        min-width: unset;
+        width: 90%;
+    }
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40rem;
+    height: 100%;
+}
+
+.submitRow {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.form-label {
+    text-align: left;
+    width: 100%;
+    color: var(--text-primary);
+}
+
+input[type=text].form-input, textarea.textarea {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: transparent;
+    outline: 0;
+    margin: 0.5rem 0 1rem 0;
+    border-radius: 0;
+    min-height: 3rem;
+    font-size: 1rem;
+    width: calc(100% - 2rem);
+    transition: background-color 0.2s;
+    padding: 0 1rem;
+}
+
+    input[type=text].form-input:focus, textarea.textarea:focus {
+        background-color: #536271;
+        border-color: none;
+        color: var(--text-primary);
+        box-shadow: none;
+        outline: 0;
+    }
+
+    input.form-input:focus, textarea.textarea:focus {
+        box-shadow: none;
+    }
+
+textarea.textarea {
+    padding: 1rem;
+    resize: none;
+    max-height: 40rem;
+    height: 50%;
+}
+
+
+
+/* Projects */
+
+.projectsContainer {
+    height: 100%;
+    position: absolute;
+    display: flex;
+    transform: translateX(100vw);
+    opacity: 0;
+    visibility: hidden;
+    transition:  opacity 0.8s, visibility 0.8s, transform 0.8s;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    gap: 2rem;
+    overflow-y: auto;
+    width: 0;
+}
+
+
+
+.projectsRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1232px) {
+    .projectsRow {
+        flex-direction: column;
+    }
+
+
+    .project {
+        max-width: 75rem;
+        max-height: 60rem;
+        min-height: 36rem;
+        min-width: 27rem;
+        width: 45vw;
+        height: 70vh;
+        margin: 2rem 0 0 0;
+    }
+
+    .projectsContainer .buttonRow {
+        margin-bottom: 2rem;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .project {
+        width: 90vw !important;
+        min-width: 2rem !important;
+        max-width: unset;
+    }
+}
+
+@media only screen and (min-width: 1233px) {
+    .project {
+        max-width: 35rem;
+        max-height: 40rem;
+        min-height: 37rem;
+        min-width: 27rem;
+        width: 35vw;
+        height: 70vh;
+    }
+}
+
+@media only screen and (min-width: 1233px) and (min-height: 732px) {
+    .projectsContainer {
+        justify-content: center;
+    }
+}
+
+.firstProject {
+    transition: box-shadow 0.3s;
+    border: 0.1rem solid var(--firstProject-secondary);
+    background-color: var(--firstProject-primary);
+    color: var(--firstProject-text);
+}
+
+.secondProject {
+    transition: box-shadow 0.3s;
+    border: 0.1rem solid var(--secondProject-secondary);
+    background-color: var(--secondProject-primary);
+    color: var(--secondProject-text);
+}
+
+.firstProject:hover {
+    box-shadow: var(--firstProject-secondary) 0px 3px 10px;
+}
+
+.secondProject:hover {
+    box-shadow: var(--secondProject-secondary) 0px 3px 10px;
+}
+
+.project-header {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 2rem 0;
+}
+
+.project-image {
+    text-align: center;
+}
+
+    .project-image img {
+        width: 90%;
+        height: auto;
+    }
+
+.firstProject .project-image img {
+    border: 0.1rem solid var(--firstProject-secondary);
+}
+
+.secondProject .project-image img {
+    border: 0.1rem solid var(--secondProject-secondary);
+}
+
+.firstProject .btn {
+    border-color: var(--firstProject-secondary);
+    color: var(--firstProject-text);
+}
+
+    .firstProject .btn:hover {
+        background-color: var(--firstProject-secondary);
+    }
+
+.firstProject .btn-span:hover a.btn {
+    background-color: var(--firstProject-secondary);
+}
+
+.secondProject .btn {
+    border-color: var(--secondProject-secondary);
+    color: var(--secondProject-text)
+}
+
+    .secondProject .btn:hover {
+        background-color: var(--secondProject-secondary);
+    }
+
+.secondProject .btn-span:hover a.btn {
+    background-color: var(--secondProject-secondary);
+}
+
+.project-body {
+    text-align: center;
+    margin: 0 1rem;
+}
+
+
+a.btn {
+    appearance: auto;
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: default;
+    box-sizing: border-box;
+    margin: 0em;
+    padding: 1px 6px;
+    text-decoration: none;
+    font-size: 0.83333125rem;
+}
+
+.validation-span {
+    color: var(--text-secondary);
+    height: 1rem;
+}
+
+
+#successNotification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 10;
+    border: 0.1rem solid var(--text-secondary);
+    transition: all 0.2s;
+    opacity: 0;
+    visibility: hidden;
+    width: 14rem;
+    height: 3rem;
+    top: 2rem;
+    left: 1rem;
+    position: fixed;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}

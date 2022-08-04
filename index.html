@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jakub Czelusta</title>
+
+
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+          integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="#">
+</head>
+
+<body>
+    <div id="successNotification">
+        <span>Message has been sent</span>
+    </div>
+    <main class="main">
+        <div id="frontContainer" class="frontContainer">
+            <div class="mainTextContainer">
+                <span class="firstText">
+                    Hi, my name is
+                    <span class="name">
+                        <span class="letter jLet">J</span>
+                        <span class="letter aLet">a</span>
+                        <span class="letter kLet">k</span>
+                        <span class="letter uLet">u</span>
+                        <span class="letter bLet">b</span>
+                    </span>
+                </span>
+                <span class="descriptionText">I am a software developer.</span>
+            </div>
+            <div class="buttonRow">
+                <span class="btn-span"><button class="btn" onclick="showContact()">Contact Me</button></span>
+                <span class="btn-span"><button class="btn" onclick="showProjects()">Projects</button></span>
+            </div>
+            <div class="links">
+                <a href="https://github.com/AnythJ"  target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/jakub-czelusta/"  target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+
+        <div id="contactContainer" class="contactContainer">
+            <div class="contactFormContainer">
+                <form id="contactForm" class="contactForm" method="POST">
+                    <input type="hidden" name="access_key" value="170aa437-13bf-4ea2-9e72-a9ecf5da47fb">
+                    <input type="email" name="email" value="czelustacontactme@gmail.com" required hidden>
+                    <label for="nameInput" class="form-label">Name</label>
+                    <input id="nameInput" name="subject" type="text" class="form-input" required>
+                    <label for="messageInput" class="form-label">Message</label>
+                    <textarea id="messageInput" name="message" type="text" class="form-input textarea" required></textarea>
+                    <div class="submitRow">
+                        <span class="btn-span">
+                            <button type="submit" class="btn">Send</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="buttonRow">
+                <span class="btn-span"><button class="btn" onclick="showFrontPageFromLeft()">Back</button></span>
+            </div>
+        </div>
+
+        <div id="projectsContainer" class="projectsContainer">
+            <div class="projectsRow">
+                <div class="project firstProject">
+                    <p class="project-header">
+                        GoldCap
+                    </p>
+                    <p class="project-image">
+                        <img src="images/dashboard.png" alt="goldcapImg">
+                    </p>
+                    <p class="project-body">
+                        The main idea of this web application is quite simple, to make it easier to analyze spendings. You are able to manually add expenses you recently did,
+                        or plan to do. You can then see how your spendings have changed in comparison with previous time periods.
+                    </p>
+                    <p class="project-footer">
+                        <div class="buttonRow">
+                            <span class="btn-span">
+                                <a href="https://github.com/AnythJ/GoldCapProject" target="_blank" class="btn">GitHub</a>
+                            </span>
+                            <span class="btn-span">
+                                <a href="https://goldcap.herokuapp.com/" target="_blank" class="btn">Demo</a>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+                <div class="project secondProject">
+                    <p class="project-header">
+                        SkoBingo
+                    </p>
+                    <p class="project-image">
+                        <img src="images/skobingoimg.png">
+                    </p>
+                    <p class="project-body">
+                        This project is based on the original game of bingo, where players would mark blocks with randomly placed numbers
+                        and whenever someone had all blocks in a row or column marked, they would win after shouting bingo.
+                    </p>
+                    <p class="project-footer">
+                        <div class="buttonRow">
+                            <span class="btn-span">
+                                <a href="https://github.com/AnythJ/SkoBingo" target="_blank" class="btn">GitHub</a>
+                            </span>
+                            <span class="btn-span">
+                                <a href="https://skobingo.herokuapp.com/" target="_blank" class="btn">Demo</a>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <div class="buttonRow">
+                <span class="btn-span"><button class="btn" onclick="showFrontPageFromRight()">Back</button></span>
+            </div>
+        </div>
+
+
+    </main>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
+
+
