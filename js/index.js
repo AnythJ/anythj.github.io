@@ -1,37 +1,3 @@
-function showProjects() {
-    document.getElementById("projectsContainer").style.transform = "translateX(0)";
-    document.getElementById("projectsContainer").style.visibility = "visible";
-    document.getElementById("projectsContainer").style.opacity = "1";
-    document.getElementById("projectsContainer").style.width = "100%";
-
-    document.getElementById("frontContainer").style.transform = "translateX(-100vw)";
-
-    document.getElementById("frontContainer").style.visibility = "hidden";
-
-    document.getElementById("frontContainer").style.opacity = "0";
-
-    setFrontTabIndexes(true);
-    setProjectsTabIndexes(false);
-};
-
-function showFrontPageFromRight() {
-    document.getElementById("projectsContainer").style.transform = "translateX(100vw)";
-
-    document.getElementById("projectsContainer").style.visibility = "hidden";
-    setTimeout(() => {
-    document.getElementById("projectsContainer").style.width = "0";
-    }, 800);
-
-    document.getElementById("frontContainer").style.transform = "translateX(0)";
-    document.getElementById("frontContainer").style.visibility = "visible";
-
-    document.getElementById("frontContainer").style.opacity = "1";
-    document.getElementById("projectsContainer").style.opacity = "0";
-
-    setProjectsTabIndexes(true);
-    setFrontTabIndexes(false);
-};
-
 function showFrontPageFromLeft() {
     document.getElementById("contactContainer").style.transform = "translateX(-100vw)";
 
@@ -96,20 +62,6 @@ function setContactTabIndexes(remove) {
         });
 }
 
-function setProjectsTabIndexes(remove) {
-    let i = 1;
-    var container = document.getElementById("projectsContainer");
-
-
-    Array.prototype.forEach.call(container
-        .getElementsByClassName("btn"), function (element) {
-            if (!remove) element.setAttribute("tabIndex", i.toString());
-            else element.setAttribute("tabIndex", "-1");
-            i++;
-        });
-}
-
-
 window.onload = function () {
     setContactTabIndexes(true);
     setProjectsTabIndexes(true);
@@ -162,6 +114,4 @@ function submitContactMe() {
                 
             });
     });
-
-    
 }
