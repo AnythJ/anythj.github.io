@@ -71,47 +71,40 @@ window.onload = function () {
 
 function submitContactMe() {
     const form = document.getElementById("contactForm");
+    if (!form) return;
 
-    form.addEventListener("submit", function (e) {
-        const formData = new FormData(form);
+    form.onsubmit = async function (e) {
         e.preventDefault();
-        var object = {};
-        formData.forEach((value, key) => {
-            object[key] = value;
-        });
-        var json = JSON.stringify(object);
+        
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData); 
+        const json = JSON.stringify(object);
 
-        fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            body: json
-        })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status == 200) {
-                    var inputs = document.getElementsByClassName("form-input");
-                    inputs[0].value = "";
-                    inputs[1].value = "";
-                    var notification = document.getElementById("successNotification");
-                    notification.style.opacity = "1";
-                    notification.style.visibility = "visible";
-                    setTimeout(function () {
-                        notification.style.opacity = "0";
-                        notification.style.visibility = "hidden";
-                    }, 3000);
-                } else {
-                    console.log(response);
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-            .then(function () {
-                form.reset();
-                
+        const notification = document.getElementById("successNotification");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: json
             });
-    });
+
+            if (response.status === 200) {
+                notification.style.visibility = "visible";
+                notification.style.opacity = "1";
+                form.reset();
+                setTimeout(function () {
+                    notification.style.opacity = "0";
+                    notification.style.visibility = "hidden";
+                }, 3000);
+            } else {
+                const result = await response.json();
+                console.log("Submission Error:", result);
+                alert("Something went wrong. Please check the console.");
+            }
+        } catch (error) {
+            console.log("Network/CORS Error:", error);
+            alert("Network error. Is your internet okay?");
+        }
+    };
 }
