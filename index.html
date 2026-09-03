@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hi, my name is Jakub and I am a software developer.">
+    <meta name="description" content="Hi, my name is Jakub and I am a .NET software engineer.">
     <title>Jakub Czelusta</title>
 
     <link rel="icon" href="/images/icon.png" type="image/x-icon" />
@@ -34,7 +34,7 @@
                         <span class="letter bLet">b</span>
                     </span>
                 </span>
-                <span class="descriptionText">I am a software developer.</span>
+                <span class="descriptionText">I am a .NET software engineer.</span>
             </div>
             <div class="buttonRow">
                 <span class="btn-span"><button class="btn" onclick="showContact()">Contact Me</button></span>
@@ -48,10 +48,12 @@
         <div id="contactContainer" class="contactContainer">
             <div class="contactFormContainer">
                 <form id="contactForm" class="contactForm" method="POST">
-                    <input type="hidden" name="access_key" value="2796d6fa-770e-4987-a249-4ba37527c577">
+                    <input type="checkbox" name="botcheck" style="display: none;">
+                    <input type="hidden" name="access_key" value="170aa437-13bf-4ea2-9e72-a9ecf5da47fb">
                     <input type="email" name="email" value="czelustacontactme@gmail.com" required hidden>
+                    <input type="hidden" name="subject" value="Contact form">
                     <label for="nameInput" class="form-label">Name</label>
-                    <input id="nameInput" name="subject" type="text" class="form-input" required>
+                    <input id="nameInput" name="name" type="text" class="form-input" required>
                     <label for="messageInput" class="form-label">Message</label>
                     <textarea id="messageInput" name="message" type="text" class="form-input textarea" required></textarea>
                     <div class="submitRow">

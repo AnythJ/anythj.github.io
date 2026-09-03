@@ -64,32 +64,47 @@ function setContactTabIndexes(remove) {
 
 window.onload = function () {
     setContactTabIndexes(true);
-    setProjectsTabIndexes(true);
     setFrontTabIndexes(false);
     submitContactMe();
 };
 
 function submitContactMe() {
     const form = document.getElementById("contactForm");
-    if (!form) return;
+    if (!form) {
+        console.error("contactForm not found");
+        return;
+    }
 
-    form.onsubmit = async function (e) {
+    form.addEventListener("submit", async function (e) {
         e.preventDefault();
-        
-        const formData = new FormData(form);
-        const object = Object.fromEntries(formData); 
-        const json = JSON.stringify(object);
 
         const notification = document.getElementById("successNotification");
+        const submitBtn = form.querySelector("button[type=submit]");
+
+        const formData = new FormData(form);
+
+        if (formData.get("botcheck")) {
+            return;
+        }
+
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        if (submitBtn) submitBtn.disabled = true;
 
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
                 body: json
             });
 
-            if (response.status === 200) {
+            const result = await response.json();
+
+            if (response.status === 200 && result.success) {
                 notification.style.visibility = "visible";
                 notification.style.opacity = "1";
                 form.reset();
@@ -98,13 +113,15 @@ function submitContactMe() {
                     notification.style.visibility = "hidden";
                 }, 3000);
             } else {
-                const result = await response.json();
-                console.log("Submission Error:", result);
-                alert("Something went wrong. Please check the console.");
+                console.error("Submission Error:", result);
+                alert("Something went wrong: " + (result.message || "please try again."));
             }
         } catch (error) {
-            console.log("Network/CORS Error:", error);
+            console.error("Network/CORS Error:", error);
             alert("Network error. Is your internet okay?");
+        } finally {
+            if (submitBtn) submitBtn.disabled = false;
         }
-    };
+    });
 }
+

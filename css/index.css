@@ -206,7 +206,6 @@ span.name {
     background-color: var(--text-secondary);
     cursor: pointer;
     transform: translate(0px, 5px);
-    border-width: 1em;
 }
 
 .btn-span {
